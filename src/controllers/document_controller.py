@@ -207,17 +207,17 @@ def export_document(document_id):
                 document.add_heading(f"{document_obj.title}", level=1).alignment = 1
                 essay = document_obj.content
                 for section in essay["sections"]:
-                    document.add_heading(f"{section["section_title"]}", level=3)
+                    document.add_heading(f"{section['section_title']}", level=3)
                     con_text = ""
                     for con in section["section_content"]:
-                        con_text = con_text + f"{con["sentence"]} "
+                        con_text = con_text + f"{con['sentence']} "
                     if con_text != "":
                         document.add_paragraph(con_text)
                     for subsection in section["subsections"]:
-                        document.add_heading(f"{subsection["subsection_title"]}", level=4)
+                        document.add_heading(f"{subsection['subsection_title']}", level=4)
                         scon_text = ""
                         for scon in subsection["subsection_content"]:
-                            scon_text = scon_text + f"{scon["sentence"]} "
+                            scon_text = scon_text + f"{scon['sentence']} "
                         document.add_paragraph(scon_text)
                 
                 document.add_heading("References", level=3)
