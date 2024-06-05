@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ essay.title }}</title>
+    </head>
+    <body>
+        <h2 style="text-align: center;">{{ essay.title }}</h2>
+        {% for section in essay.sections %}
+            <h4>{{ section.section_title }}</h4>
+            <p>
+                {% for con in section.section_content %}
+                    {{ con.sentence }}
+                {% endfor %}
+            </p>
+            {% for subsection in section.subsections %}
+                <h5>{{ subsection.subsection_title }}</h5>
+                <p>
+                    {% for subcon in subsection.subsection_content %}
+                        {{ subcon.sentence }}
+                    {% endfor %}
+                </p>
+            {% endfor %}
+        {% endfor %}
+        <h4>References</h4>
+        {% for reference in essay.references %}
+            <p>{{ reference }}</p>
+        {% endfor %}
+    </body>
+</html>
